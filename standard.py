@@ -21,7 +21,7 @@ def file_name(file_dir):
                 L.append(os.path.join(file))
     return L
 
-file_dir='H:\\homework\\xml\\'
+file_dir='D:\\new\\'
 #file_dir='C:\\Users\\hasee\\Desktop\\xml\\'
 change_dir='/home/guhuxiang/darknet/scripts/VOCdevkit/VOC2023/JPEGImages/'
 for name in file_name(file_dir):
