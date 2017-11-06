@@ -1,6 +1,7 @@
 # -*- coding: <utf-8> -*-
 import xml.dom.minidom
 import Queue
+import cv2
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -15,15 +16,14 @@ def file_name(file_dir):
     for root, dirs, files in os.walk(file_dir):
         # print(root)
         # print(dirs)
-        #print file_dir
+        # print file_dir
         for file in files:
             if os.path.splitext(file)[1] == '.xml':
                 L.append(os.path.join(file))
+                # print L
     return L
 
-file_dir='D:\\VOC1024\\'
-#file_dir='C:\\Users\\hasee\\Desktop\\xml\\'
-change_dir='/home/guhuxiang/darknet/scripts/VOCdevkit/VOC1024/JPEGImages/'
+file_dir='D:\\test\\'
 for name in file_name(file_dir):
         # print(name)
         xmaxque = Queue.Queue()
@@ -31,14 +31,32 @@ for name in file_name(file_dir):
         dom1=xml.dom.minidom.parse(file_dir+name)
         root=dom1.documentElement
         #print root.nodeName,',',root.nodeValue,',',root.nodeType
-        node= root.getElementsByTagName('filename')[0]
-        for node in node.childNodes:
+
+        picpath= root.getElementsByTagName('path')[0]
+        for picpath in picpath.childNodes:
+        	print picpath.data
+        im = cv2.imread(picpath.data)
+
+        nodewidth= root.getElementsByTagName('width')[0]
+        for nodewidth in nodewidth.childNodes:
             #if node.nodeType in (node.TEXT_NODE,node.CDATA_SECTION_NODE):
-            node.data=name[:6]+'.jpg'
-        node1= root.getElementsByTagName('path')[0]
-        for node1 in node1.childNodes:
+            nodewidth.data=im.shape[1]
+            tmpwidth=int(nodewidth.data)
+            #print tmpwidth
+
+        nodeheight= root.getElementsByTagName('height')[0]
+        for nodeheight in nodeheight.childNodes:
             #if node.nodeType in (node.TEXT_NODE,node.CDATA_SECTION_NODE):
-            node1.data=change_dir+name[:6]+'.jpg'
+            tmpheight=int(nodeheight.data)
+            nodeheight.data=im.shape[0]
+            #print tmpheight
+
+        depth= root.getElementsByTagName('depth')[0]
+        for depth in depth.childNodes:
+            #if node.nodeType in (node.TEXT_NODE,node.CDATA_SECTION_NODE):
+            tmpdepth=int(depth.data)
+            depth.data=im.shape[2]
+            #print tmpdepth
 
         f = open(file_dir+name, 'w')
         dom1.writexml(f)

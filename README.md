@@ -11,3 +11,5 @@ standard的代码用来将file_dir子目录下的所有xml中的路径替换成d
 这是用来删除一些类别的标注的，需要减少类别的时候可以使用。
 ## widerdata.py
 由于yolo对于小物体的处理很不好，因此我这边尝试将它的标注的bounding box放大试一试。
+## examinesize.py
+有时候xml中的宽和高损失了，导致训练无法正常进行，这里利用python的cv2这个包进行修正

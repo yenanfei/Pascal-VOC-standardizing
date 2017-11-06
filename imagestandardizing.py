@@ -14,9 +14,9 @@ def file_name(file_dir):
             L.append(os.path.join(file))
     return L
 
-file_dir='G:\\orc\\meter1_2_fusion_val\\'
+file_dir='C:\\Users\\WhyTensorFlow\\Desktop\\VOCtest\\JPEGImages\\'
 #file_dir='C:\\Users\\hasee\\Desktop\\xml\\'
-goal_dir='G:\\newocr\\meter1_2_fusion_val\\'
+goal_dir='C:\\Users\\WhyTensorFlow\\Desktop\\VOCtest\\JPEGImages\\'
 for name in file_name(file_dir):
     print(name)
     im = cv2.imread(file_dir+name)
