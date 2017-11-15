@@ -23,7 +23,7 @@ def file_name(file_dir):
                 # print L
     return L
 
-file_dir='D:\\test\\'
+file_dir='C:\\Users\\WhyTensorFlow\\Desktop\\xml\\'
 for name in file_name(file_dir):
         # print(name)
         xmaxque = Queue.Queue()

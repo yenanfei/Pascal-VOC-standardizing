@@ -21,9 +21,9 @@ def file_name(file_dir):
                 L.append(os.path.join(file))
     return L
 
-file_dir='D:\\VOC1024\\'
+file_dir='C:\\Users\\WhyTensorFlow\\Desktop\\xml\\'
 #file_dir='C:\\Users\\hasee\\Desktop\\xml\\'
-change_dir='/home/guhuxiang/darknet/scripts/VOCdevkit/VOC1024/JPEGImages/'
+change_dir='/home/guhuxiang/darknet/scripts/VOCdevkit/VOC2032/JPEGImages/'
 for name in file_name(file_dir):
         # print(name)
         xmaxque = Queue.Queue()
