@@ -15,3 +15,9 @@ standard的代码用来将file_dir子目录下的所有xml中的路径替换成d
 有时候xml中的宽和高损失了，导致训练无法正常进行，这里利用python的cv2这个包进行修正
 ## k_means_yolo.py
 yolo-voc.cfg中的anchors参数为预设的ImageNet中的anchors聚类结果。（yolo对fast-rcnn优化之一就是使用聚类的anchors替换了原来手工挑选的anchors，使得mAP提高了1%~2%），然而，对于自己的训练集，就需要重新聚类了。修改该文件的路径即可。
+## copybyfilename.py
+通过文件名复制文件到指定目录。
+## deletebyfilename.py
+通过文件名删除文件
+## rename.py
+用6位数字重命名指定目录下的文件
