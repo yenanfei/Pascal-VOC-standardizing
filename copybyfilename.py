@@ -17,17 +17,16 @@ def file_name(file_dir):
         # print(dirs)
         #print file_dir
         for file in files:
-            if os.path.splitext(file)[1] == '.jpg':
+            if os.path.splitext(file)[1] == '.xml':
                 L.append(os.path.join(file))
     return L
 
-<<<<<<< HEAD
-file_dir='/home/guhuxiang/darknet/scripts/VOCdevkit/VOC2030/JPEGImages/'
-=======
-file_dir='/home/guhuxiang/darknet/scripts/VOCdevkit/VOC2031/JPEGImages/'
->>>>>>> origin/master
+file_dir='D:\\datasetbakup\\VOC2050v2\\Annotations\\'
 for name in file_name(file_dir):
         namenum=int(name[:6])
         print namenum
-        if (namenum>3392):
-        	os.remove(file_dir+name)
+        namenum=namenum+100000
+        newname=str(namenum)+'.xml'
+        command = 'cp '+file_dir+name+' D:\\datasetbakup\\VOC2050v2\\Annotations\\'+newname
+        print command
+        os.system(command)
