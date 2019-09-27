@@ -1,5 +1,5 @@
 # Pascal-VOC-standardizing
-关于调参方面的总结可以参考https://nanfei.ink/2018/01/23/%E8%B0%83%E5%8F%82%E6%80%BB%E7%BB%93/#more
+关于调参方面的总结可以参考https://nanfei.xyz/2018/01/23/%E8%B0%83%E5%8F%82%E6%80%BB%E7%BB%93/#more
 ## changedata.py
 changedata的代码用于批量修改xml文件中的一些数据，如果要使用，修改file_dir为自己的目录并且将之后修改数据的逻辑换成在自己的即可，我这里做的是读取全图的宽度并且取一个比例以后加上xmin，取代原来的xmax，是项目需求所要求的。
 ## changetogray.py
